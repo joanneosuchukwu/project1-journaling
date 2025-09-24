@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindTrack Documentation</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 2rem; line-height: 1.6;">
+  <h1>Project 1: Recording the Journey</h1>
+  <h2>MindTrack: A Journaling and Goal-Tracking App</h2>
+  <p><strong>Author:</strong> Joanne Osuchukwu</p>
+
+  <h2>Demo Video</h2>
+  <iframe 
+    width="560" 
+    height="315" 
+    src="https://www.youtube.com/embed/-D7sFm2Tuic" 
+    title="Demo Video" 
+    frameborder="0" 
+    allowfullscreen>
+  </iframe>
+
+  <h2>Quick Links</h2>
+    <ul>
+        <li><a href="https://mindtrack-app.netlify.app/" target="_blank">Hosted App</a></li>
+        <li><a href="https://github.com/joanneosuchukwu/project1-journaling" target="_blank">GitHub Repo</a></li>
+        <li><a href="https://github.com/joanneosuchukwu/project1-journaling/blob/main/src/App.svelte" target="_blank">Main Code (App.svelte)</a></li>
+        <li><a href="https://youtu.be/-D7sFm2Tuic" target="_blank">Demo Video</a></li>
+    </ul>
+
+  <h2>1. Project Description</h2>
+  <p>MindTrack is a journaling and goal-tracking web application focused on mental health and self-care. The app allows users to log daily activities such as mood, sleep, stress, and gratitude. It provides motivational features like streak counters, averages, and visual feedback to encourage consistency.</p>
+
+  <p>Users can view and edit past entries through a history list or calendar, customize which activities they want to track, set personal goals, and even toggle reminders. MindTrack was implemented using JavaScript and Svelte and is deployed publicly on Netlify.</p>
+
+  <h2>2. Design Work</h2>
+  <h3>2.1 Interviews</h3>
+  <p>Purpose: To understand real users’ challenges and motivations in journaling and mental health tracking.<br>
+  Interview Script included questions about prior experiences, motivations, goals, challenges, preferred inputs, and feedback needs.</p>
+
+  <p><strong>Participant 1 (Friend A)</strong><br>
+  • History: Tried Daylio and Apple Notes; stopped due to repetitiveness and lack of reminders.<br>
+  • Motivation: Wanted mood + sleep tracking to see stress triggers.<br>
+  • Preferred Inputs: Dropdowns and sliders for speed.<br>
+  • Needs: Clear 'Saved successfully' messages and summaries.<br>
+  • Metric for success: Consistency of 5+ days per week.</p>
+
+  <p><strong>Participant 2 (Friend B)</strong><br>
+  • History: Tried Headspace journaling and notebooks; stopped due to rigidity/forgetfulness.<br>
+  • Motivation: Gratitude practice and stress tracking.<br>
+  • Needs: Quick wins, graphs, streaks, reminders.<br>
+  • Metric for success: Lower average stress scores, more gratitude entries.</p>
+
+  <p><strong>Takeaways</strong><br>
+  • Tools fail if too repetitive or demanding.<br>
+  • Core needs: mood-sleep-stress awareness, clear feedback, motivation, optionality.<br>
+  • Best inputs: dropdown, slider, number, and short text.<br>
+  • Motivators: save confirmation, visual summaries, reminders, streaks.</p>
+
+  <h3>2.2 Persona</h3>
+  <p><strong>Name:</strong> Sarah M.<br>
+  <strong>Age:</strong> 29<br>
+  <strong>Profile:</strong> Graduate student balancing coursework and research. Tech-comfortable but dislikes time-consuming apps.</p>
+  <p><strong>Goals:</strong> Track mood daily, monitor sleep for productivity, quick stress visualization, gratitude practice.<br>
+  <strong>Challenges:</strong> Abandoned past apps for being repetitive/complex, lost motivation without feedback, needs reminders.</p>
+  <p><strong>Scenario:</strong> Logs entries nightly with dropdown + slider, checks dashboard weekly for stress trends, edits via calendar.</p>
+
+  <h3>2.3 Design Requirements</h3>
+  <ul>
+    <li>Core functionality: Mood (dropdown), sleep (number), stress (slider), gratitude (textarea).</li>
+    <li>Feedback: Saved successfully messages, streak counter, averages.</li>
+    <li>History: View/edit past entries via list + calendar.</li>
+    <li>Customization: Toggle activities, preserve past data.</li>
+    <li>Overview & Metrics: Show averages vs. goals.</li>
+    <li>Usability: Clean, consistent, quick (&lt;1 min).</li>
+  </ul>
+
+  <h3>2.4 Prototype Sketches & Feedback</h3>
+  <p>Explored ~10 sketch variations. Combined dashboard, streaks, and calendar. Feedback indicated streak counter motivates, mood emojis improve UX, and Save button should stand out.</p>
+  <p><strong>Takeaway:</strong> Users want speed, motivation, and accessible history navigation.</p>
+  <p><img src="images/sketch-alternatives-1.jpg" alt="Sketch Alternatives"  
+     style="max-width:400px; width:50%; height:auto; display:block; margin:1rem 0;">
+     <img src="images/sketch-alternatives-2.jpg" alt="Sketch Alternatives"  
+     style="max-width:400px; width:50%; height:auto; display:block; margin:1rem 0;">
+     <img src="images/prototype-sketch.jpg" alt="Wireframe sketches and prototype"  
+     style="max-width:400px; width:50%; height:auto; display:block; margin:1rem 0;">
+    
+    </p>
+
+  <h3>2.5 Design Protocol</h3>
+  <p>Colors: Teal-blue (#0ea5e9) for calm headers, green (#34d399) for Save, red (#f87171) for Cancel, orange/red for stress.<br>
+  Layout: Gestalt principles, top-to-bottom flow, card sections.<br>
+  Typography: Arial, bold headers, consistent hierarchy.<br>
+  Accessibility: WCAG contrast, emojis supplement text, large buttons.</p>
+
+  <h2>3. Implementation</h2>
+  <h3>Level 1: Logging an Entry</h3>
+  <p>Dashboard shows name, days active, streak, averages. Form tracks mood, sleep, stress, and gratitude. Save/Cancel with confirmation message.</p>
+  <img src="images/dashboard.jpg" alt="Dashboard Overview" style="max-width:400px; width:50%; height:auto; display:block; margin:1rem 0;">
+  <img src="images/daily-log.jpg" alt="Daily Log Form" style="max-width:400px; width:50%; height:auto; display:block; margin:1rem 0;">
+
+  <h3>Level 2: Viewing and Editing Entries</h3>
+  <p>History list and calendar view display past logs. Entries can be edited with visible feedback. Calendar highlights logged days.</p>
+  <img src="images/history-list-calendar.jpg" alt="History and Calendar View" style="max-width:400px; width:50%; height:auto; display:block; margin:1rem 0;">
+  <img src="images/edit-form.jpg" alt="Edit Entry Form" style="max-width:400px; width:50%; height:auto; display:block; margin:1rem 0;">
+
+  <h3>Level 3: Goals, Overview, and Customization</h3>
+  <p>Users can set sleep/stress goals. Performance overview compares averages to goals. Customize section lets users toggle activities.</p>
+  <img src="images/goals-section.jpg" alt="Goals Section" style="max-width:400px; width:50%; height:auto; display:block; margin:1rem 0;">
+  <img src="images/performance-overview.jpg" alt="Performance Overview" style="max-width:400px; width:50%; height:auto; display:block; margin:1rem 0;">
+  <img src="images/customize-form.jpg" alt="Customize Tracking Form" style="max-width:400px; width:50%; height:auto; display:block; margin:1rem 0;">
+
+  <h3>Level 4: Reminders</h3>
+  <p>Added a toggle for daily reminders at 8 PM. Feedback message confirms reminder state.</p>
+  <img src="images/reminder.jpg" alt="Reminder Toggle and Feedback" style="max-width:400px; width:50%; height:auto; display:block; margin:1rem 0;">
+
+  <h2>4. Implementation Details</h2>
+  <p>Framework: Svelte<br>
+  Languages: JavaScript, HTML, CSS<br>
+  Inputs: dropdown (mood), number input (sleep), range slider (stress), textarea (gratitude)<br>
+  Data Handling: Entries stored in an array of objects; reactive variables update dashboard/averages.<br>
+  UI: Card-based layout, teal/blue theme, visual feedback, Gestalt grouping.</p>
+
+  <h2>5. Demo Video</h2>
+  <p>The demo video demonstrates Levels 1-4: logging entries, viewing/editing history, goals/customization, and reminders.<br>
+  YouTube Link: <a href="https://youtu.be/-D7sFm2Tuic" target="_blank">https://youtu.be/-D7sFm2Tuic</a></p>
+
+  <h2>6. Future Work</h2>
+  <ul>
+    <li>Add graphs/visualizations for trends.</li>
+    <li>Implement push/email reminders.</li>
+    <li>Gamify streak milestones.</li>
+    <li>Calendar pop-up editing.</li>
+    <li>Expand customization to new activities.</li>
+    <li>Expand range of moods.</li>
+  </ul>
+</body>
+</html>
